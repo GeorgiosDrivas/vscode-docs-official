@@ -1,65 +1,32 @@
-# docs-official README
+#Documentator#
 
-This is the README for your extension "docs-official". After writing up a brief description, we recommend including the following sections.
+Documentator is a Visual Studio Code extension that provides quick access to the official documentation for the programming language of the currently opened file. It helps developers save time by eliminating the need to manually search for documentation links.
 
-## Features
+#Features#
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- Automatically detects the programming language of the currently active file.
+- Opens the official documentation for the detected language in your default web browser.
+- Supports a variety of popular programming languages, with easy extensibility to add more.
 
-For example if there is an image subfolder under your extension project workspace:
+#Supported Languages#
 
-\!\[feature X\]\(images/feature-x.png\)
+- JavaScript: MDN Web Docs - JavaScript
+- Python: Python Official Documentation
+- HTML: MDN Web Docs - HTML
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+#How to Use#
+- Open a file in the supported language.
+- Press Ctrl+Shift+P to open the Command Palette.
+- Type Show Language Documentation and select the command.
+- The documentation for the language of the active file will open in your default web browser.
 
-## Requirements
+#Installation#
+- Open Visual Studio Code.
+- Go to the Extensions view by clicking the Extensions icon in the Activity Bar on the side of the window or by pressing Ctrl+Shift+X.
+- Search for Documentator and click Install.
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+#Contribution#
+Contributions are welcome! If you have any suggestions for additional language support / features or improvements, please submit an issue or a pull request on the GitHub repository.
 
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+#License#
+This extension is licensed under the MIT License. 
