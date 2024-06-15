@@ -18,8 +18,8 @@
   "main": "./extension.js",
   "contributes": {
     "commands": [{
-      "command": "docs-official.helloWorld",
-      "title": "Hello World"
+      "command": "docsCfficial.activate",
+      "title": "Docs Official Activate"
     }]
   },
   "scripts": {
