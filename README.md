@@ -6,7 +6,7 @@ Docs Official is a Visual Studio Code extension that provides quick access to th
 
 - Automatically detects the programming language of the currently active file.
 - Opens the official documentation for the detected language in your default web browser.
-- Supports a variety of popular programming languages, with easy extensibility to add more.
+- Supports a variety of popular programming languages.
 
 <h1>Supported Languages</h1>
 
@@ -20,13 +20,12 @@ Docs Official is a Visual Studio Code extension that provides quick access to th
 - Search for Docs Official and click Install.
 
 <h1>How to Use</h1>
-- Open a file in the supported language.
-- Press Ctrl+Shift+P to open the Command Palette.
-- Type Show Language Documentation and select the command.
+- After installing the extension, a button "Open Docs" will appear on the right bottom side of your status bar.
+- Click the button.
 - The documentation for the language of the active file will open in your default web browser.
 
 <h1>Contribution</h1>
-Contributions are welcome! If you have any suggestions for additional language support / features or improvements, please submit an issue or a pull request on the GitHub repository.
+Contributions are welcome! If you have any suggestions for additional language support / features or improvements, please submit an issue or a pull request on the <a href="https://github.com/GeorgiosDrivas/vscode-docs-official" target="_blank">GitHub repository</a>.
 
 <h1>License</h1>
 This extension is licensed under the MIT License. 
