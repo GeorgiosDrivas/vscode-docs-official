@@ -2,7 +2,7 @@
   "name": "docs-official",
   "displayName": "Docs Official",
   "description": "An extension that provides access to the official documentation for the currently opened file's language",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "GeorgiosDrivas",
   "repository": {
     "type": "git",
@@ -14,7 +14,9 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./extension.js",
   "contributes": {
     "commands": [{
