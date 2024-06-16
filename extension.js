@@ -11,9 +11,7 @@ const lngs = {
 };
 
 function activate(context) {
-    console.log('Documentator is now active');
 
-    // Register the command that opens the documentation
     const disposable = vscode.commands.registerCommand('docsOfficial.activate', function () {
         const editor = vscode.window.activeTextEditor;
         if (!editor) {
@@ -22,10 +20,7 @@ function activate(context) {
         }
 
         const languageId = editor.document.languageId;
-        console.log(languageId);
-
         const docUrl = lngs[languageId];
-        console.log(docUrl);
 
         if (docUrl) {
             vscode.window.showInformationMessage(`Documentation for ${languageId}`, "Open Documentation")
@@ -39,14 +34,12 @@ function activate(context) {
         }
     });
 
-    // Create the status bar item and set its properties
     const statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
     statusBarItem.command = 'docsOfficial.activate';
     statusBarItem.text = '$(book) Open Docs';
     statusBarItem.tooltip = 'Open documentation for the current file';
     statusBarItem.show();
 
-    // Push the status bar item and the command to the context's subscriptions
     context.subscriptions.push(statusBarItem, disposable);
 }
 
