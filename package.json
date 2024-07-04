@@ -2,7 +2,7 @@
   "name": "docs-official",
   "displayName": "Docs Official",
   "description": "An extension that provides access to the official documentation for the currently opened file's language",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "icon": "public/extension-img.png",
   "publisher": "GeorgiosDrivas",
   "repository": {

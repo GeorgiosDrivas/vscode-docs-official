@@ -13,7 +13,10 @@ const lngs = {
     "jsx": "https://react.dev/learn/writing-markup-with-jsx",
     "css": "https://developer.mozilla.org/en-US/docs/Web/CSS",
     "sass": "https://sass-lang.com/documentation/",
-    "json": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON"
+    "json": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "cpp": "https://devdocs.io/cpp/",
+    "java": "https://docs.oracle.com/en/java/",
+    "tsx": "https://typescriptlang.org/docs/handbook/jsx.html"
 };
 
 function activate(context) {
