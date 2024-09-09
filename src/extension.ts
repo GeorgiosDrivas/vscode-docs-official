@@ -9,7 +9,7 @@ const lngs: any = {
   python: "https://docs.python.org/3/",
   html: "https://developer.mozilla.org/en-US/docs/Web/HTML",
   php: "https://www.php.net/docs.php",
-  typescipt: "https://www.typescriptlang.org/docs/",
+  typescript: "https://www.typescriptlang.org/docs/",
   jsx: "https://react.dev/learn/writing-markup-with-jsx",
   css: "https://developer.mozilla.org/en-US/docs/Web/CSS",
   sass: "https://sass-lang.com/documentation/",
