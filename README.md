@@ -10,9 +10,18 @@ Docs Official is a Visual Studio Code extension that provides quick access to th
 
 <h1>Supported Languages</h1>
 
-- JavaScript: MDN Web Docs - JavaScript
-- Python: Python Official Documentation
-- HTML: MDN Web Docs - HTML
+- JavaScript
+- Python
+- HTML
+- PHP
+- Typescript
+- CSS
+- C++
+- Java
+- TSX
+- JSX
+- SASS
+- JSON
 
 <h1>Installation</h1>
 - Open Visual Studio Code.
