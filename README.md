@@ -7,6 +7,7 @@ Docs Official is a Visual Studio Code extension that provides quick access to th
 - Automatically detects the programming language of the currently active file.
 - Opens the official documentation for the detected language in your default web browser.
 - Supports a variety of popular programming languages.
+- Multilingual support for English | Spanish | French | Portuguese 
 
 <h1>Supported Languages</h1>
 
