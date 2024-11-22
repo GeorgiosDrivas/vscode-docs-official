@@ -1,0 +1,1 @@
+{"version":3,"file":"getVsCodeLanguage.js","sourceRoot":"","sources":["../../src/utils/getVsCodeLanguage.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;AAAA,+CAAiC;AAEjC,2CAA2C;AACpC,MAAM,iBAAiB,GAAG,GAAG,EAAE;IACpC,MAAM,QAAQ,GAAG,MAAM,CAAC,GAAG,CAAC,QAAQ,CAAC;IACrC,wCAAwC;IACxC,8CAA8C;IAC9C,KAAK;IACL,OAAO,QAAQ,CAAC;AAClB,CAAC,CAAC;AANW,QAAA,iBAAiB,qBAM5B"}

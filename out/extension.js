@@ -25,87 +25,62 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deactivate = exports.activate = void 0;
 const vscode = __importStar(require("vscode"));
+const constants_1 = require("./consts/constants");
+const getVsCodeLanguage_1 = require("./utils/getVsCodeLanguage");
 /**
  * @param {vscode.ExtensionContext} context
  */
-const lngs = {
-    javascript: {
-        en: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-        es: "https://developer.mozilla.org/es/docs/Web/JavaScript",
-        fr: "https://developer.mozilla.org/fr/docs/Web/JavaScript",
-        pt: "https://developer.mozilla.org/pt-BR/docs/Web/JavaScript",
-    },
-    python: {
-        en: "https://docs.python.org/3/",
-        es: "https://docs.python.org/es/3/",
-        fr: "https://docs.python.org/fr/3/",
-        pt: "https://docs.python.org/pt-br/3/",
-    },
-    html: {
-        en: "https://developer.mozilla.org/en-US/docs/Web/HTML",
-        es: "https://developer.mozilla.org/es/docs/Web/HTML",
-        fr: "https://developer.mozilla.org/fr/docs/Web/HTML",
-        pt: "https://developer.mozilla.org/pt-BR/docs/Web/HTML",
-    },
-    php: {
-        en: "https://www.php.net/docs.php",
-        es: "https://www.php.net/manual/es/",
-        fr: "https://www.php.net/manual/fr/",
-        pt: "https://www.php.net/manual/pt_BR/",
-    },
-    typescript: "https://www.typescriptlang.org/docs/",
-    jsx: {
-        en: "https://react.dev/learn/writing-markup-with-jsx",
-        fr: "https://fr.react.dev/learn/writing-markup-with-jsx",
-        es: "https://es.react.dev/learn/writing-markup-with-jsx",
-    },
-    css: {
-        en: "https://developer.mozilla.org/en-US/docs/Web/CSS",
-        es: "https://developer.mozilla.org/es/docs/Web/CSS",
-        fr: "https://developer.mozilla.org/fr/docs/Web/CSS",
-        pt: "https://developer.mozilla.org/pt-BR/docs/Web/CSS",
-    },
-    sass: "https://sass-lang.com/documentation/",
-    json: {
-        en: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
-        es: "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/JSON",
-        fr: "https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/JSON",
-        pt: "https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/JSON",
-    },
-    cpp: "https://devdocs.io/cpp/",
-    java: "https://docs.oracle.com/en/java/",
-    tsx: "https://typescriptlang.org/docs/handbook/jsx.html",
-};
 function activate(context) {
-    // Retrieves the VS Code interface language
-    function getVsCodeLanguage() {
-        const language = vscode.env.language;
-        // vscode.window.showInformationMessage(
-        //   `VS Code language is set to: ${language}`
-        // );
-        return language;
-    }
-    const disposable = vscode.commands.registerCommand("docsOfficial.activate", function () {
-        const editor = vscode.window.activeTextEditor;
-        if (!editor) {
-            vscode.window.showInformationMessage("No active editor found");
-            return;
-        }
-        const languageId = editor.document.languageId;
-        const docUrl = lngs[languageId][getVsCodeLanguage()]
-            ? lngs[languageId][getVsCodeLanguage()]
-            : lngs[languageId]["en"];
-        if (docUrl) {
-            vscode.window
-                .showInformationMessage(`Documentation for ${languageId}`, "Open Documentation")
-                .then((response) => {
-                if (response === "Open Documentation") {
-                    vscode.env.openExternal(vscode.Uri.parse(docUrl));
-                }
+    const disposable = vscode.commands.registerCommand("docsOfficial.activate", async function () {
+        const action = await vscode.window.showQuickPick(["Search by Keyword", "Open Documentation"], {
+            placeHolder: "Choose an action",
+            canPickMany: false,
+        });
+        if (action === "Search by Keyword") {
+            const keyword = await vscode.window.showInputBox({
+                prompt: "Enter a keyword to search in the documentation",
+                placeHolder: "e.g., async/await, decorators",
             });
+            if (keyword) {
+                const editor = vscode.window.activeTextEditor;
+                if (!editor) {
+                    vscode.window.showInformationMessage("No active editor found");
+                    return;
+                }
+                const languageId = editor.document.languageId;
+                const docUrl = constants_1.lngs[languageId][(0, getVsCodeLanguage_1.getVsCodeLanguage)()]
+                    ? constants_1.lngs[languageId][(0, getVsCodeLanguage_1.getVsCodeLanguage)()]
+                    : constants_1.lngs[languageId]["en"];
+                if (docUrl) {
+                    vscode.env.openExternal(vscode.Uri.parse(`${docUrl}/search?q=${keyword}`));
+                }
+                else {
+                    vscode.window.showErrorMessage("Documentation not available for the selected language.");
+                }
+            }
         }
-        else {
-            vscode.window.showInformationMessage(`No documentation URL found for ${languageId}`);
+        else if (action === "Open Documentation") {
+            const editor = vscode.window.activeTextEditor;
+            if (!editor) {
+                vscode.window.showInformationMessage("No active editor found");
+                return;
+            }
+            const languageId = editor.document.languageId;
+            const docUrl = constants_1.lngs[languageId][(0, getVsCodeLanguage_1.getVsCodeLanguage)()]
+                ? constants_1.lngs[languageId][(0, getVsCodeLanguage_1.getVsCodeLanguage)()]
+                : constants_1.lngs[languageId]["en"];
+            if (docUrl) {
+                vscode.window
+                    .showInformationMessage(`Documentation for ${languageId}`, "Open Documentation")
+                    .then((response) => {
+                    if (response === "Open Documentation") {
+                        vscode.env.openExternal(vscode.Uri.parse(docUrl));
+                    }
+                });
+            }
+            else {
+                vscode.window.showInformationMessage(`No documentation URL found for ${languageId}`);
+            }
         }
     });
     const statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);

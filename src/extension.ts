@@ -9,33 +9,70 @@ import { getVsCodeLanguage } from "./utils/getVsCodeLanguage";
 export function activate(context: any) {
   const disposable = vscode.commands.registerCommand(
     "docsOfficial.activate",
-    function () {
-      const editor = vscode.window.activeTextEditor;
-      if (!editor) {
-        vscode.window.showInformationMessage("No active editor found");
-        return;
-      }
+    async function () {
+      const action = await vscode.window.showQuickPick(
+        ["Search by Keyword", "Open Documentation"],
+        {
+          placeHolder: "Choose an action",
+          canPickMany: false,
+        }
+      );
 
-      const languageId = editor.document.languageId;
-      const docUrl = lngs[languageId][getVsCodeLanguage()]
-        ? lngs[languageId][getVsCodeLanguage()]
-        : lngs[languageId]["en"];
+      if (action === "Search by Keyword") {
+        const keyword = await vscode.window.showInputBox({
+          prompt: "Enter a keyword to search in the documentation",
+          placeHolder: "e.g., async/await, decorators",
+        });
 
-      if (docUrl) {
-        vscode.window
-          .showInformationMessage(
-            `Documentation for ${languageId}`,
-            "Open Documentation"
-          )
-          .then((response) => {
-            if (response === "Open Documentation") {
-              vscode.env.openExternal(vscode.Uri.parse(docUrl));
-            }
-          });
-      } else {
-        vscode.window.showInformationMessage(
-          `No documentation URL found for ${languageId}`
-        );
+        if (keyword) {
+          const editor = vscode.window.activeTextEditor;
+          if (!editor) {
+            vscode.window.showInformationMessage("No active editor found");
+            return;
+          }
+
+          const languageId = editor.document.languageId;
+          const docUrl = lngs[languageId][getVsCodeLanguage()]
+            ? lngs[languageId][getVsCodeLanguage()]
+            : lngs[languageId]["en"];
+          if (docUrl) {
+            vscode.env.openExternal(
+              vscode.Uri.parse(`${docUrl}/search?q=${keyword}`)
+            );
+          } else {
+            vscode.window.showErrorMessage(
+              "Documentation not available for the selected language."
+            );
+          }
+        }
+      } else if (action === "Open Documentation") {
+        const editor = vscode.window.activeTextEditor;
+        if (!editor) {
+          vscode.window.showInformationMessage("No active editor found");
+          return;
+        }
+
+        const languageId = editor.document.languageId;
+        const docUrl = lngs[languageId][getVsCodeLanguage()]
+          ? lngs[languageId][getVsCodeLanguage()]
+          : lngs[languageId]["en"];
+
+        if (docUrl) {
+          vscode.window
+            .showInformationMessage(
+              `Documentation for ${languageId}`,
+              "Open Documentation"
+            )
+            .then((response) => {
+              if (response === "Open Documentation") {
+                vscode.env.openExternal(vscode.Uri.parse(docUrl));
+              }
+            });
+        } else {
+          vscode.window.showInformationMessage(
+            `No documentation URL found for ${languageId}`
+          );
+        }
       }
     }
   );
