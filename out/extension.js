@@ -48,11 +48,9 @@ function activate(context) {
                     return;
                 }
                 const languageId = editor.document.languageId;
-                const docUrl = constants_1.lngs[languageId][(0, getVsCodeLanguage_1.getVsCodeLanguage)()]
-                    ? constants_1.lngs[languageId][(0, getVsCodeLanguage_1.getVsCodeLanguage)()]
-                    : constants_1.lngs[languageId]["en"];
-                if (docUrl) {
-                    vscode.env.openExternal(vscode.Uri.parse(`${docUrl}/search?q=${keyword}`));
+                const searchUrl = constants_1.searchUrls[languageId];
+                if (searchUrl) {
+                    vscode.env.openExternal(vscode.Uri.parse(`${searchUrl}${encodeURIComponent(keyword)}`));
                 }
                 else {
                     vscode.window.showErrorMessage("Documentation not available for the selected language.");

@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { lngs } from "./consts/constants";
+import { lngs, searchUrls } from "./consts/constants";
 import { getVsCodeLanguage } from "./utils/getVsCodeLanguage";
 
 /**
@@ -32,12 +32,11 @@ export function activate(context: any) {
           }
 
           const languageId = editor.document.languageId;
-          const docUrl = lngs[languageId][getVsCodeLanguage()]
-            ? lngs[languageId][getVsCodeLanguage()]
-            : lngs[languageId]["en"];
-          if (docUrl) {
+          const searchUrl = searchUrls[languageId];
+
+          if (searchUrl) {
             vscode.env.openExternal(
-              vscode.Uri.parse(`${docUrl}/search?q=${keyword}`)
+              vscode.Uri.parse(`${searchUrl}${encodeURIComponent(keyword)}`)
             );
           } else {
             vscode.window.showErrorMessage(

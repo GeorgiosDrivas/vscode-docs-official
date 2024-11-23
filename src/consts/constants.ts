@@ -46,3 +46,13 @@ export const lngs: any = {
   java: "https://docs.oracle.com/en/java/",
   tsx: "https://typescriptlang.org/docs/handbook/jsx.html",
 };
+
+export const searchUrls: any = {
+  javascript: "https://developer.mozilla.org/en-US/search?q=",
+  python: "https://docs.python.org/3/search.html?q=",
+  typescript: "https://www.typescriptlang.org/search?q=",
+  html: "https://developer.mozilla.org/en-US/search?q=",
+  css: "https://developer.mozilla.org/en-US/search?q=",
+  php: "https://www.php.net/search.php?q=",
+  json: "https://developer.mozilla.org/en-US/search?q=",
+};

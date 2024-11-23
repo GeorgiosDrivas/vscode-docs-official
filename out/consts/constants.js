@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.lngs = void 0;
+exports.searchUrls = exports.lngs = void 0;
 exports.lngs = {
     javascript: {
         en: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
@@ -48,5 +48,12 @@ exports.lngs = {
     cpp: "https://devdocs.io/cpp/",
     java: "https://docs.oracle.com/en/java/",
     tsx: "https://typescriptlang.org/docs/handbook/jsx.html",
+};
+exports.searchUrls = {
+    javascript: "https://developer.mozilla.org/en-US/search?q=",
+    python: "https://docs.python.org/3/search.html?q=",
+    typescript: "https://www.typescriptlang.org/search?q=",
+    react: "https://react.dev/search?q=",
+    angular: "https://angular.io/search?q=",
 };
 //# sourceMappingURL=constants.js.map
