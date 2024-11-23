@@ -55,4 +55,5 @@ export const searchUrls: any = {
   css: "https://developer.mozilla.org/en-US/search?q=",
   php: "https://www.php.net/search.php?q=",
   json: "https://developer.mozilla.org/en-US/search?q=",
+  java: "https://docs.oracle.com/search/?lang=en&category=java&q=",
 };
