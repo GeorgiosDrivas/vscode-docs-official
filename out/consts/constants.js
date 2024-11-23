@@ -53,7 +53,10 @@ exports.searchUrls = {
     javascript: "https://developer.mozilla.org/en-US/search?q=",
     python: "https://docs.python.org/3/search.html?q=",
     typescript: "https://www.typescriptlang.org/search?q=",
-    react: "https://react.dev/search?q=",
-    angular: "https://angular.io/search?q=",
+    html: "https://developer.mozilla.org/en-US/search?q=",
+    css: "https://developer.mozilla.org/en-US/search?q=",
+    php: "https://www.php.net/search.php?q=",
+    json: "https://developer.mozilla.org/en-US/search?q=",
+    java: "https://docs.oracle.com/search/?lang=en&category=java&q=",
 };
 //# sourceMappingURL=constants.js.map
