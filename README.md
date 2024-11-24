@@ -1,7 +1,5 @@
 <h1>Docs Official</h1>
 
-https://github.com/user-attachments/assets/4bd14b95-1738-457b-864e-ae619591f29b
-
 Docs Official is a Visual Studio Code extension that provides quick access to the official documentation for the programming language of the currently opened file. It helps developers save time by eliminating the need to manually search for documentation links.
 
 <h1>Features</h1>
