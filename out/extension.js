@@ -68,13 +68,7 @@ function activate(context) {
                 ? constants_1.lngs[languageId][(0, getVsCodeLanguage_1.getVsCodeLanguage)()]
                 : constants_1.lngs[languageId]["en"];
             if (docUrl) {
-                vscode.window
-                    .showInformationMessage(`Documentation for ${languageId}`, "Open Documentation")
-                    .then((response) => {
-                    if (response === "Open Documentation") {
-                        vscode.env.openExternal(vscode.Uri.parse(docUrl));
-                    }
-                });
+                vscode.env.openExternal(vscode.Uri.parse(docUrl));
             }
             else {
                 vscode.window.showInformationMessage(`No documentation URL found for ${languageId}`);
